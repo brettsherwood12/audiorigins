@@ -1,6 +1,5 @@
 import React from "react";
 import mapboxgl from "mapbox-gl";
-//import geocoder from "mapbox-gl-geocoder";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_GL_ACCESS_TOKEN;
 
@@ -8,17 +7,15 @@ class Map extends React.Component {
   constructor() {
     super();
     this.state = {
-      lng: -46,
-      lat: 47,
-      zoom: 2.75,
+      map: null,
     };
   }
   componentDidMount() {
     const map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [this.state.lng, this.state.lat],
-      zoom: this.state.zoom,
+      style: "mapbox://styles/mapbox/light-v10",
+      center: [-46, 47],
+      zoom: 2.75,
     });
     map.on("move", () => {
       this.setState({
@@ -27,13 +24,22 @@ class Map extends React.Component {
         zoom: map.getZoom().toFixed(2),
       });
     });
+    this.setState({
+      map,
+    });
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.coords !== this.props.coords) {
+      this.state.map.flyTo({
+        center: [this.props.coords[0], this.props.coords[1]],
+        zoom: 8.75,
+        essential: true,
+      });
+    }
   }
   render() {
     return (
       <div>
-        <div className="coordinates-bar">
-          Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom: {this.state.zoom}
-        </div>
         <div className="map-container" ref={(el) => (this.mapContainer = el)} />
       </div>
     );

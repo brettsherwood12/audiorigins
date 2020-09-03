@@ -39,3 +39,12 @@ code {
   color: red;
   z-index: 1 !important;
 }
+
+.card {
+  z-index: 1 !important;
+  width: 20rem;
+}
+
+img {
+  max-width: 15rem;
+}
