@@ -1,0 +1,25 @@
+.navbar {
+  z-index: 1 !important;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  background-color: white;
+  box-shadow: none;
+  color: #3bb2d0;
+  border-color: #3bb2d0;
+}
+.btn:hover {
+  color: white;
+  background-color: #3bb2d0;
+  border-color: #3bb2d0;
+}
+.nav-link {
+  color: white;
+  float: right;
+}
+.nav-link:hover {
+  color: white;
+  text-decoration: underline;
+}

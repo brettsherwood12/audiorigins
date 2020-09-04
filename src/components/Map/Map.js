@@ -1,5 +1,6 @@
 import React from "react";
 import mapboxgl from "mapbox-gl";
+import "./Map.css";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_GL_ACCESS_TOKEN;
 
@@ -14,7 +15,7 @@ class Map extends React.Component {
     const map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/light-v10",
-      center: [-46, 47],
+      center: [-118, 37],
       zoom: 2.75,
     });
     map.on("move", () => {
@@ -31,10 +32,11 @@ class Map extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.coords !== this.props.coords) {
       this.state.map.flyTo({
-        center: [this.props.coords[0], this.props.coords[1]],
-        zoom: 8.75,
+        center: [this.props.coords[0] - 0.3, this.props.coords[1] + 0.01],
+        zoom: 9,
         essential: true,
       });
+      new mapboxgl.Marker().setLngLat([this.props.coords[0], this.props.coords[1]]).addTo(this.state.map);
     }
   }
   render() {

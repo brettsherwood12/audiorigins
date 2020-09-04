@@ -1,15 +1,15 @@
 import Axios from "axios";
 
 const bandApi = Axios.create({
-  baseURL: "https://www.theaudiodb.com/",
+  baseURL: "https://www.theaudiodb.com/api/v1/json/1/",
 });
 
 const coordsApi = Axios.create({
   baseURL: `https://api.mapbox.com/geocoding/v5/mapbox.places/`,
 });
 
-export const getBandOrigin = (band) => {
-  return bandApi.get(`api/v1/json/1/search.php?s=${band}`).then((response) => {
+export const getBandData = (band) => {
+  return bandApi.get(`search.php?s=${band}`).then((response) => {
     return response.data;
   });
 };
