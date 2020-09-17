@@ -50,7 +50,9 @@ class Card extends React.Component {
         {this.state.error && <ErrorCard />}
         {(this.state.loaded && (
           <>
-            <img className="card-img-top" src={this.state.imgUrl} alt={this.state.name} />
+            <div className="card-img-wrapper">
+              <img className="card-img-top" src={this.state.imgUrl} alt={this.state.name} />
+            </div>
             <div className="card-body">
               <h5 className="card-title">{this.state.name}</h5>
               {(this.state.noun && (
@@ -62,8 +64,6 @@ class Card extends React.Component {
                   {this.state.genre} artist from {this.state.place}, born in {this.state.year}.
                 </h6>
               )}
-            </div>
-            <div className="card-body">
               <p className="card-text text-muted">{this.state.bio}</p>
               <a
                 href={`http://${this.props.artistData.strWebsite}`}

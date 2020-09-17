@@ -15,7 +15,7 @@ class Map extends React.Component {
     const map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/light-v10",
-      center: [-118, 37],
+      center: [-98, 38],
       zoom: 2.75,
     });
     map.on("move", () => {
@@ -32,7 +32,7 @@ class Map extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.coords !== this.props.coords) {
       this.state.map.flyTo({
-        center: [this.props.coords[0] - 0.3, this.props.coords[1] + 0.01],
+        center: [this.props.coords[0], this.props.coords[1]],
         zoom: 9,
         essential: true,
       });

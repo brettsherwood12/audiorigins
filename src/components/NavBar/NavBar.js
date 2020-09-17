@@ -33,7 +33,6 @@ class NavBar extends React.Component {
       <div className="navbar bg-secondary">
         <form className="form-inline my-2" onSubmit={this.handleFormSubmit}>
           <input
-            id="search-bar"
             className="form-control mr-2"
             type="text"
             placeholder="What artist?"
@@ -41,11 +40,8 @@ class NavBar extends React.Component {
             onChange={this.handleInputChange}
             value={this.search}
           />
-          <button className="btn">Find Out</button>
+          <button className="btn text-nowrap">Find Out</button>
         </form>
-        <a href="/" className="nav-link">
-          Home
-        </a>
       </div>
     );
   }

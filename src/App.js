@@ -9,7 +9,7 @@ class App extends React.Component {
     super();
     this.state = {
       artistData: null,
-      mapCoords: [-46, 47],
+      mapCoords: [],
     };
   }
   handleNewBand = (artistData) => {
@@ -30,8 +30,8 @@ class App extends React.Component {
     return (
       <>
         <NavBar onNewBand={this.handleNewBand} />
-        <Card artistData={this.state.artistData} />
         <Map coords={this.state.mapCoords} />
+        <Card artistData={this.state.artistData} />
       </>
     );
   }
