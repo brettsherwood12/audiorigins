@@ -14,16 +14,17 @@ class App extends React.Component {
   }
   handleNewBand = (artistData) => {
     const origin = artistData.strCountry;
-    getCoordinates(origin).then((geoData) => {
-      const mapCoords = geoData.features[0].center;
-      this.setState({
-        artistData,
-        mapCoords,
+    getCoordinates(origin)
+      .then((geoData) => {
+        const mapCoords = geoData.features[0].center;
+        this.setState({
+          artistData,
+          mapCoords,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    });
-    // .catch((error) => {
-    //   console.log(error);
-    // });
   };
   render() {
     return (
@@ -37,3 +38,9 @@ class App extends React.Component {
 }
 
 export default App;
+
+//to do: implement error view,
+//edge cases: clicking button with no input goes to london/l marshall
+//handle situation when one of the values is null.
+//move home button
+//

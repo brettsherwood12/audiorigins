@@ -6,6 +6,11 @@
   border: 0;
   align-items: space-between;
 }
+@media (max-width: 800px) {
+  .card {
+    z-index: 2;
+  }
+}
 .card-img-top {
   border-radius: 0;
 }

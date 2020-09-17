@@ -16,5 +16,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-}
+/* #root {
+  display: flex;
+  flex-direction: column;
+} */
