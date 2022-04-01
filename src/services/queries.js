@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 const bandApi = Axios.create({
-  baseURL: "https://www.theaudiodb.com/api/v1/json/1/",
+  baseURL: "https://www.theaudiodb.com/api/v1/json/2/",
 });
 
 const coordsApi = Axios.create({
