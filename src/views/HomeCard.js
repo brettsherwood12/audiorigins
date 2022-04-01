@@ -13,16 +13,6 @@ const HomeView = () => {
           Search for an artist (spelled correctly) to find out where they lived before the fame - and to find out if
           this information is as addictive to you as it is to me.
         </p>
-        <div className="call-to-action">
-          <p className="card-text">
-            I'm a web developer that's currently seeking clients and employment opportunities, click the link below to
-            checkout my website.
-          </p>
-        </div>
-        <p className="card-text">-Brett</p>
-        <a href="https://clockmakerbrett.tech" target="_blank" rel="noopener noreferrer" className="card-link">
-          Checkout my website
-        </a>
       </div>
     </>
   );
